@@ -37,7 +37,6 @@ const fibo = n => {
 const inverterString = texto => {
 
   const charArray = texto.split('');
-  console.log(charArray);
   const invertedText = [];
 
   for (let j = charArray.length - 1; j >= 0; j--) {
