@@ -1,15 +1,23 @@
+const questao1 = document.querySelector('.questao-1');
+const questao2 = document.querySelector('.questao-2');
+const botaoQuestao2 = document.querySelector('.verificar');
+const questao5 = document.querySelector('.questao-5');
+const botaoQuestao5 = document.querySelector('.inverter-texto');
+
+
 
 const somar = (indice, k) => {
+
   let soma = 0;
+
   while (k < indice) {
+
     k++;
     soma += k;
-    console.log(soma);
   }
-  console.log(soma);
-}
 
-somar(13, 0);
+  return soma;
+}
 
 const fibo = n => {
   let a = 0;
@@ -41,4 +49,33 @@ const inverterString = texto => {
   return invertedText.join('');
 }
 
-console.log(inverterString('oi, eu sou o Zack!'));
+const resposta1 = document.createElement('p');
+resposta1.innerHTML = somar(13, 0);
+questao1.appendChild(resposta1);
+
+botaoQuestao2.addEventListener('click', () => {
+
+  const resposta2 = document.getElementById('fibo?').value;
+  const resultadoFibo = document.createElement('p');
+
+  if (fibo(parseInt(resposta2))) {
+    resultadoFibo.innerHTML = resposta2 + ' pertence a sequência Fibonacci!';
+  } else {
+    resultadoFibo.innerHTML = resposta2 + ' NÂO pertence a sequência Fibonacci!';
+  }
+
+  questao2.appendChild(resultadoFibo);
+
+})
+
+botaoQuestao5.addEventListener('click', () => {
+
+  const resposta5 = document.getElementById('inverter').value;
+  const resultado5 = document.createElement('p');
+
+  resultado5.innerHTML = inverterString(resposta5);
+
+
+  questao5.appendChild(resultado5);
+
+})
